@@ -1,0 +1,50 @@
+{
+  "skill_name": "prd-writer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a PRD for a JWT-based user authentication system for our SaaS web app. Users need to sign up, log in, reset passwords, and we want to support OAuth via Google. The backend is Node.js/Express.",
+      "expected_output": "A complete engineering PRD for a JWT auth system covering functional requirements for sign-up, login, password reset, and Google OAuth. Should include numbered requirements (FR-xxx), success metrics, scope, NFRs around security and performance, data model for users/sessions, and API contract sketches.",
+      "files": [],
+      "assertions": [
+        {"id": "A1", "name": "has-metadata-header", "description": "Document includes a metadata block with Status, Last Updated, and Version fields near the top"},
+        {"id": "A2", "name": "has-required-sections", "description": "Document contains Overview, Goals/Success Metrics, Scope, User Stories, Functional Requirements, Non-Functional Requirements, and Open Questions"},
+        {"id": "A3", "name": "requirements-are-numbered", "description": "Functional requirements use FR-xxx style numbering"},
+        {"id": "A4", "name": "requirements-have-priorities", "description": "At least some requirements have [P0]/[P1]/[P2] labels"},
+        {"id": "A5", "name": "has-out-of-scope", "description": "Document contains an explicit Out of Scope section or subsection"},
+        {"id": "A6", "name": "metrics-are-measurable", "description": "Goals section contains at least one quantified metric"},
+        {"id": "A7", "name": "covers-all-auth-flows", "description": "Functional requirements cover sign-up, login, password reset, and Google OAuth"}
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I want to build a simple mobile app for tracking habits. Write a PRD.",
+      "expected_output": "A complete engineering PRD for a habit tracking mobile app. Should infer reasonable scope, include prioritized functional requirements with FR-xxx numbering, and surface key open questions like platform choice, offline support, and sync.",
+      "files": [],
+      "assertions": [
+        {"id": "A1", "name": "has-metadata-header", "description": "Document includes a metadata block with Status, Last Updated, and Version fields near the top"},
+        {"id": "A2", "name": "has-required-sections", "description": "Document contains Overview, Goals/Success Metrics, Scope, User Stories, Functional Requirements, Non-Functional Requirements, and Open Questions"},
+        {"id": "A3", "name": "requirements-are-numbered", "description": "Functional requirements use FR-xxx style numbering"},
+        {"id": "A4", "name": "requirements-have-priorities", "description": "At least some requirements have [P0]/[P1]/[P2] labels"},
+        {"id": "A5", "name": "has-out-of-scope", "description": "Document contains an explicit Out of Scope section or subsection"},
+        {"id": "A6", "name": "metrics-are-measurable", "description": "Goals section contains at least one quantified metric"},
+        {"id": "A7", "name": "surfaces-key-ambiguities", "description": "Open Questions raises at least one critical ambiguity (platform choice, offline support, account/sync model)"}
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "We need to add real-time notifications to our existing React/Node app. Users should get in-app notifications when someone comments on their post, mentions them, or likes their content. Write a spec for this.",
+      "expected_output": "A complete engineering PRD for a real-time notification feature covering the three trigger events, functional requirements for delivery and read state, NFRs for latency and scalability, and technical discussion of the real-time mechanism.",
+      "files": [],
+      "assertions": [
+        {"id": "A1", "name": "has-metadata-header", "description": "Document includes a metadata block with Status, Last Updated, and Version fields near the top"},
+        {"id": "A2", "name": "has-required-sections", "description": "Document contains Overview, Goals/Success Metrics, Scope, User Stories, Functional Requirements, Non-Functional Requirements, and Open Questions"},
+        {"id": "A3", "name": "requirements-are-numbered", "description": "Functional requirements use FR-xxx style numbering"},
+        {"id": "A4", "name": "requirements-have-priorities", "description": "At least some requirements have [P0]/[P1]/[P2] labels"},
+        {"id": "A5", "name": "has-out-of-scope", "description": "Document contains an explicit Out of Scope section or subsection"},
+        {"id": "A6", "name": "metrics-are-measurable", "description": "Goals section contains at least one quantified metric"},
+        {"id": "A7", "name": "addresses-realtime-mechanism", "description": "Technical section addresses the real-time delivery mechanism (WebSocket, SSE, polling, or similar)"}
+      ]
+    }
+  ]
+}
