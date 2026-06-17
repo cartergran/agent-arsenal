@@ -1,0 +1,58 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\pagestyle{empty}
+
+\titleformat{\section}{\large\bfseries\scshape}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{10pt}{6pt}
+\setlist[itemize]{leftmargin=1.4em,itemsep=1pt,topsep=2pt}
+\newcommand{\entry}[4]{\textbf{#1} \hfill #2\\ \textit{#3} \hfill \textit{#4}\par}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE \textbf{Jordan Reyes}}\\[2pt]
+  Austin, TX \, $\cdot$ \, jordan.reyes@email.com \, $\cdot$ \, (512) 555-0148 \,
+  $\cdot$ \, \href{https://github.com/jreyes}{github.com/jreyes}
+\end{center}
+
+\section{Summary}
+Software engineer with 3 years of experience building and shipping web
+applications. Comfortable across the stack with a focus on backend services
+and data-heavy features.
+
+\section{Experience}
+\entry{BrightLedger (FinTech startup)}{Austin, TX}{Software Engineer}{2022 -- Present}
+\begin{itemize}
+  \item Built and maintained backend APIs in Python (Flask) serving the company's invoicing product.
+  \item Worked with PostgreSQL to model financial data and wrote queries powering reporting dashboards.
+  \item Containerized services with Docker and deployed them to AWS (EC2, RDS, S3).
+  \item Added automated tests and helped set up the team's build pipeline, cutting release time.
+  \item Collaborated with two other engineers on feature design and code reviews.
+\end{itemize}
+
+\entry{Cobalt Apps (Agency)}{Remote}{Junior Developer}{2021 -- 2022}
+\begin{itemize}
+  \item Developed client websites and small web apps using JavaScript and React.
+  \item Integrated third-party REST APIs (payments, email, analytics).
+  \item Fixed bugs and shipped features against tight client deadlines.
+\end{itemize}
+
+\section{Projects}
+\begin{itemize}
+  \item \textbf{tinyqueue} --- a small job-queue library in Python backed by Redis; ~300 GitHub stars.
+  \item \textbf{budgetbot} --- a personal-finance Slack bot (Python, SQLite).
+\end{itemize}
+
+\section{Skills}
+\textbf{Languages:} Python, JavaScript, SQL \\
+\textbf{Frameworks/Tools:} Flask, React, Docker, Git, PostgreSQL, Redis \\
+\textbf{Cloud:} AWS (EC2, RDS, S3)
+
+\section{Education}
+\entry{University of Texas at Austin}{Austin, TX}{B.S. in Computer Science}{2017 -- 2021}
+
+\end{document}

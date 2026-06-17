@@ -1,0 +1,49 @@
+{
+  "skill_name": "resume-tailor",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Tailor my resume for this job. My resume is at evals/resume-tailor/fixtures/sample_resume.tex.\n\nHere's the posting:\n\nBackend Engineer — Distributed Systems @ Vantyr\nVantyr is building a real-time payments platform. We're hiring a Backend Engineer to design and operate low-latency, high-throughput services.\n\nWhat you'll do:\n- Design and build RESTful and gRPC microservices in Go\n- Run services on Kubernetes; own deployment, scaling, and on-call\n- Model financial data in PostgreSQL and optimize query performance\n- Build CI/CD pipelines and improve observability (metrics, tracing, logging)\n- Participate in design reviews and mentor junior engineers\n\nRequirements:\n- 3+ years building backend services in production\n- Strong with at least one of Go, Java, or Python\n- Experience with containers (Docker) and orchestration (Kubernetes)\n- Solid SQL and relational database experience (PostgreSQL preferred)\n- Familiarity with CI/CD and cloud platforms (AWS)\n\nNice to have: gRPC, Redis, distributed systems, event-driven architecture.",
+      "expected_output": "A kebab-case folder (e.g. vantyr-backend-engineer) in the current directory containing the tailored sample_resume.tex, a compiled sample_resume.pdf, and CHANGES.md. The resume should surface backend/Python/PostgreSQL/Docker/AWS/CI-CD/Redis experience prominently using the JD's exact terminology (RESTful, microservices, CI/CD pipelines, observability). Go and Kubernetes are absent-but-adjacent (Docker present, no K8s; Python present, no Go) — these should be added as defensible stretches and flagged in CHANGES.md's 'Review before you submit' section. The .tex must still compile.",
+      "files": ["evals/resume-tailor/fixtures/sample_resume.tex"],
+      "assertions": [
+        { "id": "A1", "name": "kebab-case-folder", "description": "An output folder is created in the current directory whose name is derived from the company/role in kebab-case (e.g. vantyr-backend-engineer), not the literal fixture name." },
+        { "id": "A2", "name": "tex-and-pdf-present", "description": "The output folder contains both a .tex file and a compiled .pdf of the resume." },
+        { "id": "A3", "name": "pdf-compiles", "description": "The output .tex compiles to a valid non-empty PDF (the build script ran successfully)." },
+        { "id": "A4", "name": "exact-keyword-mirroring", "description": "The tailored resume uses the JD's exact terminology where the original experience supports it — e.g. 'microservices', 'CI/CD', 'observability', 'PostgreSQL' (not 'Postgres') appear in the text." },
+        { "id": "A5", "name": "stretches-flagged", "description": "CHANGES.md exists and its 'Review before you submit' section explicitly flags any technologies that were stretched beyond the original (e.g. Go and/or Kubernetes), rather than silently inserting them." },
+        { "id": "A6", "name": "no-fabricated-facts", "description": "No fabricated employers, job titles, dates, or degrees were introduced; work history matches the original resume's companies and timeline." },
+        { "id": "A7", "name": "template-preserved", "description": "The document class, packages, and custom macros from the original template are preserved; only content within the structure changed." }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Can you optimize evals/resume-tailor/fixtures/sample_resume.tex for this role? Want it to do well in their ATS.\n\nFrontend Engineer (React/TypeScript) — Loomly\nWe build collaborative design tools. Looking for a Frontend Engineer to own key parts of our web app.\n\nResponsibilities:\n- Build and maintain features in React with TypeScript\n- Work closely with designers to ship polished, accessible UI\n- Consume and help design REST APIs\n- Write unit and integration tests; contribute to our CI pipeline\n\nRequirements:\n- 2+ years building production frontend with React\n- Proficiency in JavaScript/TypeScript and modern CSS\n- Experience integrating REST APIs\n- Familiarity with testing and CI/CD\n\nNice to have: TypeScript, Next.js, design systems, web performance.",
+      "expected_output": "A kebab-case folder (e.g. loomly-frontend-engineer) with tailored .tex, compiled .pdf, and CHANGES.md. The skill should pull the candidate's React/JavaScript/REST-integration experience (currently buried in the older 'Junior Developer' role and skills) forward and prominent, since the most recent role is backend-leaning. The summary/title should be reframed toward frontend. TypeScript is absent-but-adjacent to JavaScript and should be a flagged stretch. Should not over-claim deep frontend seniority given the actual experience.",
+      "files": ["evals/resume-tailor/fixtures/sample_resume.tex"],
+      "assertions": [
+        { "id": "A1", "name": "kebab-case-folder", "description": "An output folder named in kebab-case from the company/role (e.g. loomly-frontend-engineer) is created in the current directory." },
+        { "id": "A2", "name": "tex-and-pdf-present", "description": "The folder contains both the tailored .tex and a compiled .pdf." },
+        { "id": "A3", "name": "frontend-surfaced", "description": "React / JavaScript / REST-integration experience is made prominent (e.g. reordered earlier, expanded, or pulled into a summary), rather than left buried under the backend role." },
+        { "id": "A4", "name": "title-reframed", "description": "A summary or headline reframes the candidate toward the frontend role's title/keywords without falsifying the actual job titles in the work history." },
+        { "id": "A5", "name": "typescript-flagged", "description": "If TypeScript (absent from the original) is added, CHANGES.md flags it as a stretch in the 'Review before you submit' section." },
+        { "id": "A6", "name": "changes-report-coverage", "description": "CHANGES.md includes an ATS keyword coverage table mapping JD keywords to where they appear in the tailored resume." }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I need evals/resume-tailor/fixtures/iconheader_resume.tex tailored for the job below — and I've heard my resume formatting might be hurting me with automated screeners, so fix that too while you're at it.\n\nSenior Full-Stack Engineer @ Cedarpoint\nWe're a Series B company building B2B SaaS. Seeking a Senior Full-Stack Engineer to lead features across our React/TypeScript frontend and Node.js/GraphQL backend.\n\nWhat we need:\n- 5+ years full-stack web development\n- Expert in React and TypeScript\n- Strong Node.js and GraphQL API design\n- Experience leading projects and mentoring engineers\n- CI/CD, AWS, and PostgreSQL experience\n- Strong communication; comfortable running design reviews",
+      "expected_output": "A kebab-case folder (e.g. cedarpoint-senior-full-stack-engineer) with tailored .tex, compiled .pdf, and CHANGES.md. This candidate is a strong match, so tailoring is mostly reframing/keyword-mirroring. Critically, the skill should fix the ATS formatting pitfalls in this template: contact info currently lives in the fancyhdr page header (often unreadable by ATS) and should be moved into the document body; nonstandard headings 'What I Do', 'Where I've Worked', 'Stack', 'School' should be normalized to standard ATS-recognizable headings (Summary, Experience, Skills, Education). The .tex must still compile.",
+      "files": ["evals/resume-tailor/fixtures/iconheader_resume.tex"],
+      "assertions": [
+        { "id": "A1", "name": "kebab-case-folder", "description": "A kebab-case output folder from the company/role (e.g. cedarpoint-senior-full-stack-engineer) is created in the current directory." },
+        { "id": "A2", "name": "tex-and-pdf-present", "description": "The folder contains both the tailored .tex and a compiled .pdf." },
+        { "id": "A3", "name": "contact-moved-to-body", "description": "Contact info (name, email, phone, links) is moved out of the fancyhdr header into the document body so an ATS can read it." },
+        { "id": "A4", "name": "headings-normalized", "description": "Nonstandard section headings are normalized to standard ATS-recognizable ones (e.g. 'What I Do'->Summary, 'Where I've Worked'->Experience, 'Stack'->Skills, 'School'->Education)." },
+        { "id": "A5", "name": "keyword-mirroring", "description": "JD keywords the candidate genuinely has (React, TypeScript, Node.js, GraphQL, CI/CD, AWS, PostgreSQL, mentoring, design reviews) are present using the JD's exact terms." },
+        { "id": "A6", "name": "pdf-compiles", "description": "The restructured .tex still compiles to a valid PDF despite the formatting changes." },
+        { "id": "A7", "name": "changes-documented", "description": "CHANGES.md documents the formatting fixes (header->body, heading normalization) so the user understands what changed and why." }
+      ]
+    }
+  ]
+}
